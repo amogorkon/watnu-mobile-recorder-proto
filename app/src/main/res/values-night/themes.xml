@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.CTuneClock" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorSecondary">@color/black</item>
+
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimation.Fade</item>
+
+        <item name="shapeCornerSmall">4dp</item>
+        <item name="shapeCornerMedium">8dp</item>
+        <item name="shapeCornerLarge">12dp</item>
+
+        <item name="typographyHeadlineLarge">@style/textAppearanceHeadlineLarge</item>
+        <item name="typographyBodyMedium">@style/textAppearanceBodyMedium</item>
+    </style>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="md_theme_dark_primary">#FF000000</color>
+    <color name="md_theme_dark_onPrimary">#FFFFFFFF</color>
+    <color name="md_theme_dark_secondary">#FF000000</color>
+    <color name="md_theme_dark_onSecondary">#FFFFFFFF</color>
+    <color name="md_theme_dark_background">#FF121212</color>
+    <color name="md_theme_dark_surface">#FF1E1E1E</color>
+    <color name="md_theme_dark_onSurface">#FFCCCCCC</color>
+
+    <color name="button_grey">#131323</color>
+
+</resources>

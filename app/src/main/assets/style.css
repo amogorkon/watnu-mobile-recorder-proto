@@ -1,0 +1,224 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #0d1117; /* Dark background */
+  color: #ffffff; /* White text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative; /* Needed for absolute positioning */
+  text-align: left; /* Align all text to the left */
+  line-height: 1.6;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Default state for sections (hidden) */
+  /* JS will control display/visibility/opacity */
+}
+
+.time-section {
+  margin: 0 10px;
+  padding: 10px;
+  text-align: left; /* Align content within time-section to the left */
+  /* Initial hidden state */
+  opacity: 0;
+  visibility: hidden;
+  display: none; /* Initially hidden from layout */
+  /* Transition for opacity and visibility */
+  /* Visibility becomes hidden AFTER opacity is 0 (delay) */
+  /* Visibility becomes visible BEFORE opacity goes to 1 (no delay) */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
+}
+
+/* Style for the active time section - managed by JS */
+.time-section.active {
+    display: block; /* Make block when active */
+    visibility: visible; /* Make visible */
+    opacity: 1; /* Fade in */
+    transition: opacity 0.5s ease-in-out, visibility 0s linear 0s; /* No delay on becoming visible */
+}
+
+.label {
+  font-size: 1rem;
+  color: #8b949e;
+  margin-bottom: 2px;
+  white-space: nowrap;
+}
+.value {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 16px; /* Add space below each value */
+  white-space: nowrap;
+}
+.time-hm {
+  font-size: 4rem;
+}
+.time-sec {
+  font-size: 2rem;
+  margin-left: 4px;
+}
+
+/* --- Styling for Dawn/Dusk Times --- */
+.solar-times {
+  position: absolute; /* Position relative to the body */
+  bottom: 20px; /* Distance from the bottom */
+  left: 20px; /* Distance from the left */
+  right: 20px; /* Distance from the right */
+  display: flex; /* Use flexbox to space items */
+  justify-content: space-between; /* Push items to the corners */
+  width: calc(100% - 40px); /* Adjust width based on left/right padding */
+  pointer-events: none; /* Prevent clicks on this container */
+  /* Initial hidden state */
+  opacity: 0;
+  visibility: hidden;
+  /* Transition for opacity and visibility */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
+}
+
+/* Show solar times when CTU is active - managed by JS adding/removing '.show-ctu' class to body */
+.show-ctu .solar-times {
+  opacity: 1; /* Fade in */
+  visibility: visible; /* Make visible */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0s; /* No delay on becoming visible */
+}
+
+.solar-time {
+  font-size: 1.2rem;
+  color: #8b949e;
+  white-space: nowrap; /* Prevent wrapping */
+}
+.solar-time .icon {
+  margin-right: 4px;
+}
+.solar-time .time {
+  font-weight: 600;
+}
+
+/* --- Styling for the Sun Element --- */
+#sun {
+  position: absolute;
+  width: 20px; /* Very small size */
+  height: 20px; /* Very small size */
+  background: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px rgba(255,223,0,0.7); /* Shine effect */
+  transform: translate(-50%, -50%); /* Center the sun element on its coordinates */
+  z-index: 10;
+  /* Initial hidden state */
+  opacity: 0;
+  visibility: hidden;
+   /* Transition for opacity and visibility */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
+  /* display will be managed by JS */
+}
+
+/* Show sun when CTU is active - managed by JS adding/removing '.show-ctu' class to body */
+.show-ctu #sun {
+  opacity: 1; /* Fade in */
+  visibility: visible; /* Make visible */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0s; /* No delay on becoming visible */
+}
+
+
+/* --- Styling for Date Elements --- */
+.week-label, .full-date {
+    position: absolute; /* Position them on top of each other */
+    bottom: 80px; /* Adjust as needed, above solar times */
+    left: 0; /* Span full width to center text */
+    right: 0;
+    width: 100%; /* Span full width */
+    text-align: center;
+    font-size: 1.2rem;
+    color: #8b949e;
+    /* Initial hidden state */
+    opacity: 0;
+    visibility: hidden;
+    display: none; /* Initially hidden from layout */
+    /* Transition for opacity and visibility */
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s; /* Use shorter duration for internal toggle */
+    pointer-events: auto; /* Allow clicks */
+    cursor: pointer; /* Indicate clickable */
+}
+
+/* Adjust the position of the date elements to avoid overlapping with the clock */
+#week-label, #full-date {
+  position: absolute;
+  top: 70%; /* Adjust this value to ensure no overlap with the clock */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em; /* Adjust font size if needed */
+  text-align: center;
+}
+
+/* Style for the active date element - managed by JS */
+.week-label.active, .full-date.active {
+     display: block; /* Make block when active */
+     visibility: visible; /* Make visible */
+     opacity: 1; /* Fade in */
+     transition: opacity 0.3s ease-in-out, visibility 0s linear 0s; /* No delay on becoming visible */
+}
+
+/* --- Integrated Styles from README.html --- */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #1f2937; /* Tailwind's bg-gray-800 */
+  padding: 2rem; /* Tailwind's p-8 */
+  border-radius: 0.5rem; /* Tailwind's rounded-lg */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* Tailwind's shadow-xl */
+}
+
+h1 {
+  display: block; /* Ensure the element is displayed */
+  font-size: 2rem; /* Adjust font size for better visibility */
+  font-weight: 700; /* Tailwind's font-bold */
+  text-align: center; /* Center align the header */
+  margin: 20px 10px; /* Add margin to ensure it fits within the screen */
+  padding: 0; /* Remove unnecessary padding */
+  color: #ffffff; /* Ensure the text color is visible */
+}
+
+h2 {
+  font-size: 1.5rem; /* Tailwind's text-2xl */
+  font-weight: 600; /* Tailwind's font-semibold */
+  margin-bottom: 1rem; /* Tailwind's mb-4 */
+}
+
+p, ul {
+  color: #d1d5db; /* Tailwind's text-gray-300 */
+  margin: 0 0 1rem 0; /* Add spacing between elements */
+  display: block; /* Ensure block-level display for readability */
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1.5rem; /* Tailwind's list-inside */
+}
+
+ul ul {
+  list-style-type: circle; /* Tailwind's list-circle */
+  margin-left: 1rem; /* Tailwind's ml-4 */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-sm {
+  font-size: 0.875rem; /* Tailwind's text-sm */
+}
+
+.text-gray-500 {
+  color: #6b7280; /* Tailwind's text-gray-500 */
+}
+
+.mt-8 {
+  margin-top: 2rem; /* Tailwind's mt-8 */
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  This file controls which files and directories are included in your app's
+  full backup. Adjust the <include> and <exclude> elements as needed.
+-->
+<full-backup-content>
+    <!--
+      Include shared preferences for key settings (e.g., onboarding completion flag).
+      Add more <include> entries here if additional shared preferences should be backed up.
+    -->
+    <include domain="sharedpref" path="c_tune_prefs.xml"/>
+
+    <!--
+      Optionally, include files or databases if necessary:
+      <include domain="database" path="your_database_name.db"/>
+      <include domain="files" path="important_files/"/>
+    -->
+
+    <!--
+      Exclude temporary files and caches to save space and avoid backing up non-essential data.
+      Extend these rules if you have other folders not needed in the backup.
+    -->
+</full-backup-content>

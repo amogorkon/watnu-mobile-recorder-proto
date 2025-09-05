@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to CTU Clock!" />
+
+    <TextView
+        android:id="@+id/ctuExplanation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="CTU (Calculated Time Uncoordinated) is a revolutionary timekeeping system aligned with the sun."
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/learnMoreButton"
+        android:text="Learn More"
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:backgroundTint="@color/button_grey"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/startClockButton"
+        android:text="Start Clock"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:backgroundTint="@color/button_grey"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>C-Tune Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="clock-container">
+  <div class="time-section" id="utc-section">
+    <div class="label">Global (UTC)</div>
+    <div class="value" id="utc-time">
+      <span class="time-hm">Loading</span>
+      <span class="time-sec">...</span>
+    </div>
+  </div>
+  <div class="time-section" id="local-section">
+    <div class="label" id="local-time-label">Local Time</div>
+    <div class="value" id="local-time">
+      <span class="time-hm">Loading</span>
+      <span class="time-sec">...</span>
+    </div>
+  </div>
+  <div class="time-section" id="ctu-section">
+    <div class="label">Local (CTU)</div>
+    <div class="value" id="ctu-time">
+      <span class="time-hm">Loading</span>
+      <span class="time-sec">...</span>
+    </div>
+  </div>
+</div>
+<div class="solar-times">
+  <div id="dawn-time" class="solar-time">
+    <span class="icon">↑</span>
+    <span class="time">--:--</span>
+  </div>
+  <div id="dusk-time" class="solar-time">
+    <span class="icon">↓</span>
+    <span class="time">--:--</span>
+  </div>
+</div>
+<div id="sun"></div>
+<div class="week-label" id="week-label">We 34</div>
+<div class="full-date" id="full-date">2025-05-09</div>
+
+<script src="script.js"></script>
+</body>
+</html>

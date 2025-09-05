@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fade window animation style -->
+    <style name="WindowAnimation.Fade">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+    <!-- Add WindowAnimation base style for compatibility -->
+    <style name="WindowAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+    <!-- Add TextAppearance base style for compatibility -->
+    <style name="TextAppearance">
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>
